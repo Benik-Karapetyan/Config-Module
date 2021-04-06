@@ -1,23 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Button, Input} from "antd";
 
-function App() {
+const App = () => {
+  const [input, setInput] = React.useState('');
+
+  React.useEffect(() => {
+    console.log('effect')
+  })
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Edit <code>src/App.tsx</code> {input} and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
+        <Input
+          onChange={(e) => setInput(e.target.value)}
+          value={input}
+        />
+
+        <Button type="primary">
+          Button
+        </Button>
       </header>
     </div>
   );
