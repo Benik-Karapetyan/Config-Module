@@ -1,19 +1,22 @@
-import React from "react";
-import {Button} from "antd";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {Layout} from "antd";
+import Tasks from "./pages/Tasks";
+
+const {Content} = Layout;
 
 const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-
-        <Button type="primary">
-          Button
-        </Button>
-      </header>
-    </div>
+    <Router>
+      <Layout>
+        <Content>
+          <Switch>
+            <Route path="/">
+              <Tasks/>
+            </Route>
+          </Switch>
+        </Content>
+      </Layout>
+    </Router>
   );
 }
 
