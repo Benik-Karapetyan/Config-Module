@@ -9,6 +9,12 @@
 |
 */
 
+export enum Auth {
+  failed = 'failed',
+  password = 'password',
+  throttle = 'throttle'
+}
+
 export default {
   failed: 'These credentials do not match our records.',
   password: 'The provided password is incorrect.',
