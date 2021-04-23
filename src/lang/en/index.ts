@@ -1,28 +1,11 @@
 import auth from "./auth";
+import common from "./common";
 import passwords from "./passwords";
 import pagination from "./pagination";
 
-export enum Actions {
-  create = 'create',
-  update = 'update',
-  remove = 'remove',
-  submit = 'submit',
-  cancel = 'cancel',
-  show = 'show',
-  edit = 'edit',
-  ok = 'ok',
-}
-
 export default {
   ...auth,
+  ...common,
   ...passwords,
   ...pagination,
-  create: 'create',
-  update: 'update',
-  remove: 'remove',
-  submit: 'submit',
-  cancel: 'cancel',
-  show: 'show',
-  edit: 'edit',
-  ok: 'ok',
 }

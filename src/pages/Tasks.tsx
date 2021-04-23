@@ -9,7 +9,7 @@ import {Card, Col, PageHeader, Row, Typography, Tooltip, Button} from "antd";
 import {RootState, Task} from "../types";
 import {CheckboxChangeEvent} from "antd/lib/checkbox";
 import {createTaskActionCreator, toggleTaskActionCreator, updateTaskActionCreator, removeTaskActionCreator} from "../store/slices/tasks";
-import {Actions} from "../lang/en";
+import {Actions} from "../lang/keys";
 
 const {Text} = Typography;
 
@@ -22,7 +22,7 @@ interface EditableTask {
   title: string;
 }
 
-const Tasks: FC<TasksProps> = () => {
+export const Tasks: FC<TasksProps> = () => {
   const dispatch = useDispatch();
   const items = useSelector((state: RootState) => state.tasks);
   const formRef = useRef<FormInstance<{title: string}>>(null);
@@ -122,6 +122,4 @@ const Tasks: FC<TasksProps> = () => {
       </Row>
     </>
   );
-}
-
-export default Tasks;
+};

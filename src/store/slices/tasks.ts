@@ -1,4 +1,4 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createSlice, PayloadAction, Draft} from "@reduxjs/toolkit";
 import {v1 as uuid} from 'uuid';
 import {Task} from "../../types";
 
@@ -25,7 +25,7 @@ const tasksSlice = createSlice({
   initialState,
   reducers: {
     create: {
-      reducer: (state, {payload}: PayloadAction<Task>) => {
+      reducer: (state: Draft<Task[]>, {payload}: PayloadAction<Task>) => {
         state.push(payload);
       },
       prepare: ({title}: {title: string}) => ({
@@ -36,24 +36,24 @@ const tasksSlice = createSlice({
         }
       })
     },
-    edit: (state, {payload}: PayloadAction<{ id: string, title: string }>) => {
+    edit: (state: Draft<Task[]>, {payload}: PayloadAction<{ id: string, title: string }>) => {
       const task = state.find(task => task.id === payload.id);
 
       if (task) {
         task.title = payload.title;
       }
     },
-    toggle: (state, {payload}: PayloadAction<{ id: string, done: boolean }>) => {
+    toggle: (state: Draft<Task[]>, {payload}: PayloadAction<{ id: string, done: boolean }>) => {
       const task = state.find(task => task.id === payload.id);
 
       if (task) {
         task.done = payload.done;
       }
     },
-    remove: (state, {payload}: PayloadAction<{ id: string }>) => {
+    remove: (state: Draft<Task[]>, {payload}: PayloadAction<{ id: string }>) => {
       const index = state.findIndex(task => task.id === payload.id);
 
-      if (index !== 1) {
+      if (index !== -1) {
         state.splice(index, 1);
       }
     }

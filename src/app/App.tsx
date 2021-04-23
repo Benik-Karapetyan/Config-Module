@@ -1,23 +1,20 @@
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import {Suspense} from "react";
-import {Layout} from "antd";
-import Tasks from "../pages/Tasks";
+import {Tasks} from "../pages/Tasks";
+import {DefaultLayout} from "../layouts/DefaultLayout";
 
-const {Content} = Layout;
 
 const App = () => {
   return (
     <Suspense fallback={'loading...'}>
       <Router>
-        <Layout>
-          <Content>
-            <Switch>
-              <Route path="/">
-                <Tasks/>
-              </Route>
-            </Switch>
-          </Content>
-        </Layout>
+        <DefaultLayout>
+          <Switch>
+            <Route path="/">
+              <Tasks/>
+            </Route>
+          </Switch>
+        </DefaultLayout>
       </Router>
     </Suspense>
   );
