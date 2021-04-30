@@ -18,12 +18,12 @@ export enum Actions {
 }
 
 export enum Pagination {
-  previous= 'previous',
-  next = 'next'
+  previous = 'previous',
+  next = 'next',
 }
 
 export enum Auth {
   failed = 'failed',
   password = 'password',
-  throttle = 'throttle'
+  throttle = 'throttle',
 }

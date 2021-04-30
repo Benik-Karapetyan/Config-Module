@@ -1,5 +1,5 @@
 export interface RootState {
-  tasks: Task[]
+  tasks: Task[];
 }
 
 export interface Task {

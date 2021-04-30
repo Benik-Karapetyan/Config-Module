@@ -1,0 +1,21 @@
+.app-header {
+  background-color: #f1f1f1;
+  padding: 24px 28px;
+}
+
+.title {
+  color: #343b4c;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.subtitle {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.blue--text {
+  color: #0070d7;
+}

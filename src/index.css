@@ -1,0 +1,31 @@
+.bb {
+  border: 1px solid black;
+}
+
+.bw {
+  border: 1px solid white;
+}
+
+body {
+  font-family: 'Montserrat';
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.text__bold {
+  font-weight: bold;
+}
+
+.py-6 {
+  padding: 24px 0;
+}
+
+.py-10 {
+  padding: 40px 0;
+}
+
+.pr-7 {
+  padding-right: 28px;
+}
