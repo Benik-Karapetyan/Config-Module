@@ -12,7 +12,7 @@ const Body: FC<BodyProps> = ({items, columns}) => {
   const renderCell = (item: {}, column: Column) => {
     if (column.content) return column.content(item);
 
-    return _.get(item, `${column?.path}`);
+    return _.get(item, `${column.path}`);
   };
 
   const createKey = (item: {id: number}, column: Column) => {
@@ -23,8 +23,10 @@ const Body: FC<BodyProps> = ({items, columns}) => {
     <TableBody>
       {items.map((item: any) => (
         <TableRow key={item.id}>
-          {columns.map((column) => (
-            <TableCell key={createKey(item, column)}>{renderCell(item, column)}</TableCell>
+          {columns.map((column, i) => (
+            <TableCell align={i === 4 ? 'right' : 'left'} key={createKey(item, column)}>
+              {renderCell(item, column)}
+            </TableCell>
           ))}
         </TableRow>
       ))}

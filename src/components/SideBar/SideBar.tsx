@@ -8,12 +8,12 @@ export interface SideBarProps {}
 const SideBar: FC<SideBarProps> = () => (
   <>
     <aside>
-      <Button color="primary" className="sidebar-btn">
+      <Button color="primary" fullWidth className="sidebar-btn">
         <NavLink to="/templates" className="navlink" activeClassName="navlink__active">
           Шаблоны журнала измерений
         </NavLink>
       </Button>
-      <Button color="primary" className="sidebar-btn">
+      <Button color="primary" fullWidth className="sidebar-btn">
         <NavLink to="/categories" className="navlink" activeClassName="navlink__active">
           Справочник категорий измерений
         </NavLink>

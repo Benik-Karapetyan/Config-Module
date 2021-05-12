@@ -1,4 +1,5 @@
-import {FC, useState} from 'react';
+import {FC, useState, useEffect} from 'react';
+import API from '../../../../api';
 import {IconButton} from '@material-ui/core';
 import DataTable from '../common/DataTable';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
@@ -47,6 +48,21 @@ const TemplatesTable: FC<TemplatesTableProps> = () => {
     newItems[0].name = 'Vaxo';
     setItems(newItems);
   };
+
+  const getTemplates = async () => {
+    try {
+      const {data} = await API.get('/measurementLog/template');
+      const {templates} = data.data;
+
+      console.log(templates);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    getTemplates();
+  }, []);
 
   return <DataTable columns={columns} sortColumn={sortColumn} items={items} onSort={handleSort} />;
 };

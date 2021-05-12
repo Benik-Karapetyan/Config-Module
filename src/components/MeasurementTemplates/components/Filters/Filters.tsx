@@ -24,19 +24,19 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const departmentNames = [
-  {title: 'The Shawshank Redemption', year: 1994},
-  {title: 'The Godfather', year: 1972},
-  {title: 'The Godfather: Part II', year: 1974},
-  {title: 'The Dark Knight', year: 2008},
-  {title: '12 Angry Men', year: 1957},
+  {title: 'The Shawshank Redemption', id: 1},
+  {title: 'The Godfather', id: 2},
+  {title: 'The Godfather: Part II', id: 3},
+  {title: 'The Dark Knight', id: 4},
+  {title: '12 Angry Men', id: 5},
 ];
 
 const categories = [
-  {title: 'The Shawshank Redemption', year: 1994},
-  {title: 'The Godfather', year: 1972},
-  {title: 'The Godfather: Part II', year: 1974},
-  {title: 'The Dark Knight', year: 2008},
-  {title: '12 Angry Men', year: 1957},
+  {title: 'The Shawshank Redemption', id: 1},
+  {title: 'The Godfather', id: 2},
+  {title: 'The Godfather: Part II', id: 3},
+  {title: 'The Dark Knight', id: 4},
+  {title: '12 Angry Men', id: 5},
 ];
 
 interface FilterAttrs {
@@ -55,18 +55,15 @@ const Filters: FC<FiltersProps> = ({onFilter}) => {
 
   const handleDepartmentSelect = (
     e: ChangeEvent<{}>,
-    value: Value<{year: number; title: string}, false, false, false>
+    value: Value<{id: number; title: string}, false, false, false>
   ) => {
-    setFilters({...filters, departmentName: value?.year});
-    onFilter({...filters, departmentName: value?.year});
+    setFilters({...filters, departmentName: value?.id});
+    onFilter({...filters, departmentName: value?.id});
   };
 
-  const handleCategorySelect = (
-    e: ChangeEvent<{}>,
-    value: Value<{year: number; title: string}, false, false, false>
-  ) => {
-    setFilters({...filters, category: value?.year});
-    onFilter({...filters, category: value?.year});
+  const handleCategorySelect = (e: ChangeEvent<{}>, value: Value<{id: number; title: string}, false, false, false>) => {
+    setFilters({...filters, category: value?.id});
+    onFilter({...filters, category: value?.id});
   };
 
   const handleStatusSelect = (event: ChangeEvent<{value: unknown}>) => {

@@ -1,6 +1,5 @@
 import {FC} from 'react';
-import {useTranslation} from 'react-i18next';
-import {useSelector, useDispatch} from 'react-redux';
+import {NavLink} from 'react-router-dom';
 import {Grid, Button} from '@material-ui/core';
 import './appHeader.css';
 
@@ -19,7 +18,7 @@ const AppHeader: FC<AppHeaderProps> = () => {
         </Grid>
 
         <Button variant="contained" color="primary" disableElevation>
-          создать новый шаблон
+          <NavLink to="/create">создать новый шаблон</NavLink>
         </Button>
       </Grid>
     </header>

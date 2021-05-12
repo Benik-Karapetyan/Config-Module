@@ -44,7 +44,7 @@ const Head: FC<HeadProps> = ({columns, sortColumn, onSort}) => {
   return (
     <TableHead>
       <TableRow>
-        {columns.map((column: Column) => (
+        {columns.map((column: Column, i) => (
           <TableCell className="clickable" key={column.path || column.key} onClick={() => raiseSort(column.path)}>
             <Grid container alignItems="center" className="text__bold">
               {column.label} {renderSortIcon(column)}

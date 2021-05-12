@@ -26,6 +26,10 @@ body {
   padding: 40px 0;
 }
 
+.pt-5 {
+  padding-top: 20px;
+}
+
 .pr-7 {
   padding-right: 28px;
 }

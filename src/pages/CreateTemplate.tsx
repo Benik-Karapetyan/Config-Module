@@ -1,20 +1,19 @@
 import {FC} from 'react';
 import {Grid} from '@material-ui/core';
-import SideBar from '../SideBar';
 
-interface MeasurementCategoriesProps {}
+export interface CreateTemplateProps {}
 
-const MeasurementCategories: FC<MeasurementCategoriesProps> = () => {
+const CreateTemplate: FC<CreateTemplateProps> = () => {
   return (
     <Grid container className="py-10">
       <Grid item xs={3} className="pr-7">
-        <SideBar />
+        {/* <SideBar /> */}
       </Grid>
       <Grid item xs={9} className="pr-7">
-        <h1>Measurement Categories</h1>
+        <h1>Hello World</h1>
       </Grid>
     </Grid>
   );
 };
 
-export default MeasurementCategories;
+export default CreateTemplate;
