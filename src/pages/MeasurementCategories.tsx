@@ -1,6 +1,6 @@
 import {FC} from 'react';
 import {Grid} from '@material-ui/core';
-import SideBar from '../SideBar';
+import SideBar from '../components/SideBar';
 
 interface MeasurementCategoriesProps {}
 

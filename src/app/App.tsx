@@ -1,28 +1,27 @@
 import {Suspense} from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-// import Tasks from '../pages/Tasks';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import AppHeader from '../components/AppHeader';
-import Home from '../pages/Home';
 import CreateTemplate from '../pages/CreateTemplate';
-// import {DefaultLayout} from '../layouts/DefaultLayout';
+import MeasurementTemplates from '../pages/MeasurementTemplates';
+import MeasurementCategories from '../pages/MeasurementCategories';
 
 const App = () => {
   return (
     <Suspense fallback={'loading...'}>
       <Router>
         <AppHeader />
-
-        {/* <DefaultLayout> */}
         <Switch>
           <Route path="/create">
             <CreateTemplate />
           </Route>
-          <Route path="/">
-            {/* <Tasks /> */}
-            <Home></Home>
+          <Route path="/templates">
+            <MeasurementTemplates />
           </Route>
+          <Route path="/categories">
+            <MeasurementCategories />
+          </Route>
+          <Redirect from="/" to="/templates" exact></Redirect>
         </Switch>
-        {/* </DefaultLayout> */}
       </Router>
     </Suspense>
   );

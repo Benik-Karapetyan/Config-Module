@@ -18,8 +18,16 @@ body {
   font-weight: bold;
 }
 
+.ml-3 {
+  margin-left: 12px !important;
+}
+
 .py-6 {
   padding: 24px 0;
+}
+
+.py-5 {
+  padding: 20px 0;
 }
 
 .py-10 {
@@ -32,4 +40,36 @@ body {
 
 .pr-7 {
   padding-right: 28px;
+}
+
+.main-title {
+  color: #343b4c;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 32px;
+  margin: 5px 0 0;
+}
+
+.sidebar__btn {
+  padding: 0 !important;
+  border-radius: 0 10px 10px 0 !important;
+}
+
+.navlink {
+  width: 100%;
+  padding: 10px 0 10px 28px;
+  border-radius: 0 10px 10px 0;
+  text-align: left;
+}
+
+.navlink__active {
+  background-color: #f1f1f1;
+}
+
+.white--text {
+  color: white;
+}
+
+.white--text:hover {
+  color: white;
 }

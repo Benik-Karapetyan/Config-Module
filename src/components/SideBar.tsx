@@ -1,22 +1,21 @@
 import {FC} from 'react';
-import {NavLink} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import {Button} from '@material-ui/core';
-import './sideBar.css';
 
 export interface SideBarProps {}
 
 const SideBar: FC<SideBarProps> = () => (
   <>
     <aside>
-      <Button color="primary" fullWidth className="sidebar-btn">
+      <Button color="primary" fullWidth className="sidebar__btn">
         <NavLink to="/templates" className="navlink" activeClassName="navlink__active">
           Шаблоны журнала измерений
         </NavLink>
       </Button>
-      <Button color="primary" fullWidth className="sidebar-btn">
-        <NavLink to="/categories" className="navlink" activeClassName="navlink__active">
+      <Button color="primary" fullWidth className="sidebar__btn">
+        <Link to="/categories" className="navlink">
           Справочник категорий измерений
-        </NavLink>
+        </Link>
       </Button>
     </aside>
   </>

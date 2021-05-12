@@ -18,7 +18,9 @@ const AppHeader: FC<AppHeaderProps> = () => {
         </Grid>
 
         <Button variant="contained" color="primary" disableElevation>
-          <NavLink to="/create">создать новый шаблон</NavLink>
+          <NavLink className="white--text" to="/create">
+            создать новый шаблон
+          </NavLink>
         </Button>
       </Grid>
     </header>

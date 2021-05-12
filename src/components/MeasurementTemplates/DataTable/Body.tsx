@@ -12,6 +12,10 @@ const Body: FC<BodyProps> = ({items, columns}) => {
   const renderCell = (item: {}, column: Column) => {
     if (column.content) return column.content(item);
 
+    if (column.path === 'isDefault') {
+      return column.path ? 'По умолчанию' : 'По выбору';
+    }
+
     return _.get(item, `${column.path}`);
   };
 
