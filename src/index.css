@@ -18,28 +18,41 @@ body {
   font-weight: bold;
 }
 
-.ml-3 {
+.ma-0 {
+  margin: 0 !important;
+}
+
+.mx-3 {
   margin-left: 12px !important;
+  margin-right: 12px !important;
+}
+
+.mb-6 {
+  margin-bottom: 24px !important;
+}
+
+.mb-8 {
+  margin-bottom: 32px !important;
 }
 
 .py-6 {
-  padding: 24px 0;
+  padding: 24px 0 !important;
 }
 
 .py-5 {
-  padding: 20px 0;
+  padding: 20px 0 !important;
 }
 
 .py-10 {
-  padding: 40px 0;
+  padding: 40px 0 !important;
 }
 
 .pt-5 {
-  padding-top: 20px;
+  padding-top: 20px !important;
 }
 
 .pr-7 {
-  padding-right: 28px;
+  padding-right: 28px !important;
 }
 
 .main-title {
@@ -47,7 +60,7 @@ body {
   font-weight: 600;
   font-size: 26px;
   line-height: 32px;
-  margin: 5px 0 0;
+  margin: 5px 0 25px;
 }
 
 .sidebar__btn {
@@ -72,4 +85,25 @@ body {
 
 .white--text:hover {
   color: white;
+}
+
+.toolbar-title {
+  display: inline-block;
+  color: #343b4c;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 39px;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22px;
+  letter-spacing: 0;
+}
+
+.switch-label {
+  font-size: 16px;
+  font-weight: 500;
 }

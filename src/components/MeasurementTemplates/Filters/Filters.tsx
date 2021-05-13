@@ -26,13 +26,6 @@ const useStyles = makeStyles((theme: Theme) =>
 interface Department {
   id: number;
   name: string;
-  dateFrom?: null;
-  dateTo?: null;
-  externalId?: null;
-  isDeleted?: false;
-  level?: string;
-  parentId?: null;
-  status?: number;
 }
 
 interface Category {
@@ -40,35 +33,27 @@ interface Category {
   name: string;
 }
 
-interface FilterAttrs {
-  departmentName?: number;
-  category?: number;
-  isDefault?: string;
-}
-
 interface FiltersProps {
+  isDefault?: string;
   onFilter: Function;
+  onClick: Function;
 }
 
-const Filters: FC<FiltersProps> = ({onFilter}) => {
+const Filters: FC<FiltersProps> = ({isDefault, onFilter, onClick}) => {
   const classes = useStyles();
   const [departments, setDepartments] = useState<Department[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
-  const [filters, setFilters] = useState<FilterAttrs>({isDefault: ''});
 
   const handleDepartmentSelect = (e: ChangeEvent<{}>, value: Value<Department, false, false, false>) => {
-    setFilters({...filters, departmentName: value?.id});
-    onFilter({...filters, departmentName: value?.id});
+    onFilter({branchId: value?.id});
   };
 
   const handleCategorySelect = (e: ChangeEvent<{}>, value: Value<Category, false, false, false>) => {
-    setFilters({...filters, category: value?.id});
-    onFilter({...filters, category: value?.id});
+    onFilter({categoryId: value?.id});
   };
 
   const handleStatusSelect = (event: ChangeEvent<{value: unknown}>) => {
-    setFilters({...filters, isDefault: event.target.value as string});
-    onFilter({...filters, isDefault: event.target.value as string});
+    onFilter({isDefault: event.target.value as string});
   };
 
   const getDepartments = async () => {
@@ -118,7 +103,6 @@ const Filters: FC<FiltersProps> = ({onFilter}) => {
           )}
         />
       </Grid>
-
       <Grid item xs={3}>
         <Autocomplete
           options={categories}
@@ -137,18 +121,17 @@ const Filters: FC<FiltersProps> = ({onFilter}) => {
           )}
         />
       </Grid>
-
       <Grid item xs={3}>
         <FormControl variant="outlined" className={classes.statusControl}>
           <InputLabel id="category">Статус</InputLabel>
-          <Select value={filters.isDefault} onChange={handleStatusSelect} labelId="category">
+          <Select value={isDefault} onChange={handleStatusSelect} labelId="category">
             <MenuItem value={1}>По умолчанию</MenuItem>
             <MenuItem value={0}>По выбору</MenuItem>
           </Select>
         </FormControl>
       </Grid>
 
-      <Button variant="contained" color="primary" disableElevation className={classes.button}>
+      <Button color="primary" variant="contained" disableElevation className={classes.button} onClick={() => onClick()}>
         <SearchIcon fontSize="large" />
       </Button>
     </Grid>

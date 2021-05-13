@@ -9,11 +9,19 @@ export interface BodyProps {
 }
 
 const Body: FC<BodyProps> = ({items, columns}) => {
-  const renderCell = (item: {}, column: Column) => {
+  const renderCell = (item: {isDefault: boolean; branches: [{name: string}]}, column: Column) => {
     if (column.content) return column.content(item);
 
     if (column.path === 'isDefault') {
-      return column.path ? 'По умолчанию' : 'По выбору';
+      return item.isDefault ? 'По умолчанию' : 'По выбору';
+    }
+
+    if (column.path === 'branches') {
+      let branches = '';
+      // @typescript-ignore
+      item.branches.forEach((branch) => (branches += ', ' + branch.name));
+
+      return branches.slice(2);
     }
 
     return _.get(item, `${column.path}`);
@@ -24,17 +32,19 @@ const Body: FC<BodyProps> = ({items, columns}) => {
   };
 
   return (
-    <TableBody>
-      {items.map((item: any) => (
-        <TableRow key={item.id}>
-          {columns.map((column, i) => (
-            <TableCell align={i === 4 ? 'right' : 'left'} key={createKey(item, column)}>
-              {renderCell(item, column)}
-            </TableCell>
-          ))}
-        </TableRow>
-      ))}
-    </TableBody>
+    <>
+      <TableBody>
+        {items.map((item: any) => (
+          <TableRow key={item.id}>
+            {columns.map((column, i) => (
+              <TableCell align={i === 4 ? 'right' : 'left'} key={createKey(item, column)}>
+                {renderCell(item, column)}
+              </TableCell>
+            ))}
+          </TableRow>
+        ))}
+      </TableBody>
+    </>
   );
 };
 

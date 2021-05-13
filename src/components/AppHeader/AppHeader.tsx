@@ -16,9 +16,8 @@ const AppHeader: FC<AppHeaderProps> = () => {
             ПН, 8 августа 2020
           </h5>
         </Grid>
-
         <Button variant="contained" color="primary" disableElevation>
-          <NavLink className="white--text" to="/create">
+          <NavLink className="white--text" to="/create/template-characteristics">
             создать новый шаблон
           </NavLink>
         </Button>
