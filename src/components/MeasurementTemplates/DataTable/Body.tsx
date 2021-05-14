@@ -4,11 +4,12 @@ import _ from 'lodash';
 import {Column} from './Head';
 
 export interface BodyProps {
+  loading: boolean;
   items: any[];
   columns: Column[];
 }
 
-const Body: FC<BodyProps> = ({items, columns}) => {
+const Body: FC<BodyProps> = ({loading, items, columns}) => {
   const renderCell = (item: {isDefault: boolean; branches: [{name: string}]}, column: Column) => {
     if (column.content) return column.content(item);
 
@@ -33,17 +34,19 @@ const Body: FC<BodyProps> = ({items, columns}) => {
 
   return (
     <>
-      <TableBody>
-        {items.map((item: any) => (
-          <TableRow key={item.id}>
-            {columns.map((column, i) => (
-              <TableCell align={i === 4 ? 'right' : 'left'} key={createKey(item, column)}>
-                {renderCell(item, column)}
-              </TableCell>
-            ))}
-          </TableRow>
-        ))}
-      </TableBody>
+      {!loading && (
+        <TableBody>
+          {items.map((item: any) => (
+            <TableRow key={item.id}>
+              {columns.map((column, i) => (
+                <TableCell align={i === 4 ? 'right' : 'left'} key={createKey(item, column)}>
+                  {renderCell(item, column)}
+                </TableCell>
+              ))}
+            </TableRow>
+          ))}
+        </TableBody>
+      )}
     </>
   );
 };

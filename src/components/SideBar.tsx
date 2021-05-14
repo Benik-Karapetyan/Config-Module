@@ -1,6 +1,6 @@
 import {FC} from 'react';
 import {NavLink} from 'react-router-dom';
-import {Button} from '@material-ui/core';
+import {List, ListItem, ListItemText} from '@material-ui/core';
 
 interface Navlink {
   text: string;
@@ -11,16 +11,20 @@ export interface SideBarProps {
   items: Navlink[];
 }
 
-const SideBar: FC<SideBarProps> = ({items = []}) => (
-  <aside>
-    {items.map((item) => (
-      <Button key={item.text} color="primary" fullWidth className="sidebar__btn">
-        <NavLink to={item.to} className="navlink" activeClassName="navlink__active">
-          {item.text}
-        </NavLink>
-      </Button>
-    ))}
-  </aside>
-);
+const SideBar: FC<SideBarProps> = ({items = []}) => {
+  return (
+    <aside>
+      <List component="nav" aria-label="main mailbox folders">
+        {items.map((item) => (
+          <ListItem key={item.text} button style={{padding: 0}}>
+            <NavLink to={item.to} className="navlink" activeClassName="navlink__active">
+              <ListItemText primary={item.text} />
+            </NavLink>
+          </ListItem>
+        ))}
+      </List>
+    </aside>
+  );
+};
 
 export default SideBar;

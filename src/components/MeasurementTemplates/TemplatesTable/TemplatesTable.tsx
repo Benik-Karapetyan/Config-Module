@@ -90,6 +90,7 @@ const TemplatesTable: FC<TemplatesTableProps> = () => {
   };
 
   const getTemplates = async (query?: string) => {
+    setLoading(true);
     let url = '/measurementLog/template';
     if (query) url += query;
 
@@ -101,7 +102,9 @@ const TemplatesTable: FC<TemplatesTableProps> = () => {
 
       setPagesCount(Math.ceil(totalCount / filters.limit));
       setTemplates(templates);
+      setLoading(false);
     } catch (err) {
+      setLoading(false);
       console.error(err);
     }
   };
@@ -121,15 +124,16 @@ const TemplatesTable: FC<TemplatesTableProps> = () => {
         onFilter={handleFilter}
         onClick={(e: any) => (page === 1 ? doFilter() : handlePageChange(e, 1))}
       />
-      <DataTable columns={columns} sortColumn={sortColumn} items={templates} onSort={handleSort} />
-      <Grid
-        container
-        justify="center"
-        className="bb"
-        style={{border: '1px solid rgba(224, 224, 224, 1)', borderTop: 'none', padding: 20}}
-      >
-        <CircularProgress />
-      </Grid>
+      <DataTable loading={loading} columns={columns} sortColumn={sortColumn} items={templates} onSort={handleSort} />
+      {loading && (
+        <Grid
+          container
+          justify="center"
+          style={{border: '1px solid rgba(224, 224, 224, 1)', borderTop: 'none', padding: 20}}
+        >
+          <CircularProgress />
+        </Grid>
+      )}
       <Pagination
         page={page}
         onChange={handlePageChange}
