@@ -101,7 +101,7 @@ const TemplateCharacteristicsForm: FC<TemplateCharacteristicsFormProps> = () => 
 
       <h1 className="main-title">Характеристики параметров</h1>
 
-      <CategoryForm />
+      <CategoryForm tag="div" />
 
       <Button
         disableElevation

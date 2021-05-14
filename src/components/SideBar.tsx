@@ -14,7 +14,7 @@ export interface SideBarProps {
 const SideBar: FC<SideBarProps> = ({items = []}) => {
   return (
     <aside>
-      <List component="nav" aria-label="main mailbox folders">
+      <List component="nav" className="pa-0">
         {items.map((item) => (
           <ListItem key={item.text} button style={{padding: 0}}>
             <NavLink to={item.to} className="navlink" activeClassName="navlink__active">

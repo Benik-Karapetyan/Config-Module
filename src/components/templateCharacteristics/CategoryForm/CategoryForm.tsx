@@ -1,34 +1,27 @@
-import {FC} from 'react';
+import React, {FC} from 'react';
 import {createStyles, makeStyles} from '@material-ui/core/styles';
 import {FormControl, InputLabel, Select, MenuItem} from '@material-ui/core';
+import BAutocomplete from './Bautocomplete';
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    root: {
-      display: 'block',
-    },
-    departmentSelect: {
-      width: '100%',
-      marginBottom: 25,
-    },
-  })
-);
+export interface CategoryFormProps {
+  tag?: typeof React.Component | string;
+}
 
-export interface CategoryFormProps {}
-
-const CategoryForm: FC<CategoryFormProps> = () => {
-  const classes = useStyles();
+const CategoryForm: FC<CategoryFormProps> = ({tag}) => {
+  const WrapperTag = tag || 'form';
 
   return (
-    <div>
-      <FormControl variant="outlined" className={classes.departmentSelect}>
-        <InputLabel id="category">Отделение</InputLabel>
-        <Select labelId="category">
+    <WrapperTag className="d-block" style={{width: '100%'}}>
+      <FormControl variant="outlined" className="d-block mb-6">
+        <InputLabel id="category">Категория</InputLabel>
+        <Select labelId="category" style={{width: '100%'}}>
           <MenuItem value={1}>По умолчанию</MenuItem>
           <MenuItem value={0}>По выбору</MenuItem>
         </Select>
       </FormControl>
-    </div>
+
+      <BAutocomplete></BAutocomplete>
+    </WrapperTag>
   );
 };
 

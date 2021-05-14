@@ -123,8 +123,8 @@ const Filters: FC<FiltersProps> = ({isDefault, onFilter, onClick}) => {
       </Grid>
       <Grid item xs={3}>
         <FormControl variant="outlined" className={classes.statusControl}>
-          <InputLabel id="category">Статус</InputLabel>
-          <Select value={isDefault} onChange={handleStatusSelect} labelId="category">
+          <InputLabel id="status">Статус</InputLabel>
+          <Select value={isDefault} onChange={handleStatusSelect} labelId="status">
             <MenuItem value={1}>По умолчанию</MenuItem>
             <MenuItem value={0}>По выбору</MenuItem>
           </Select>
