@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
-import {createStyles, makeStyles} from '@material-ui/core/styles';
 import {FormControl, InputLabel, Select, MenuItem} from '@material-ui/core';
 import BAutocomplete from './Bautocomplete';
+import TimingForm from '../TimingForm';
 
 export interface CategoryFormProps {
   tag?: typeof React.Component | string;
@@ -11,7 +11,10 @@ const CategoryForm: FC<CategoryFormProps> = ({tag}) => {
   const WrapperTag = tag || 'form';
 
   return (
-    <WrapperTag className="d-block" style={{width: '100%'}}>
+    <WrapperTag
+      className="d-block"
+      style={{width: '100%', background: '#EEF2F4', marginBottom: 40, padding: '24px 24px 0'}}
+    >
       <FormControl variant="outlined" className="d-block mb-6">
         <InputLabel id="category">Категория</InputLabel>
         <Select labelId="category" style={{width: '100%'}}>
@@ -21,6 +24,8 @@ const CategoryForm: FC<CategoryFormProps> = ({tag}) => {
       </FormControl>
 
       <BAutocomplete></BAutocomplete>
+
+      <TimingForm title="Систолическое АД" />
     </WrapperTag>
   );
 };

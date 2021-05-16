@@ -17,8 +17,9 @@ import AddIcon from '@material-ui/icons/Add';
 
 const useStyles = makeStyles(() =>
   createStyles({
-    root: {
-      display: 'block',
+    nameTextField: {
+      width: '100%',
+      marginBottom: 24,
     },
     templateCategorySelect: {
       width: '100%',
@@ -60,16 +61,20 @@ const TemplateCharacteristicsForm: FC<TemplateCharacteristicsFormProps> = () => 
   const classes = useStyles();
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
-      <TextField label="Наименование шаблона" variant="outlined" className="mb-6" />
+    <form noValidate autoComplete="off">
+      <Grid container>
+        <Grid item xs={9}>
+          <TextField label="Наименование шаблона" variant="outlined" className={classes.nameTextField} />
 
-      <FormControl variant="outlined" className={classes.templateCategorySelect}>
-        <InputLabel id="category">Статус</InputLabel>
-        <Select labelId="category">
-          <MenuItem value={1}>По умолчанию</MenuItem>
-          <MenuItem value={0}>По выбору</MenuItem>
-        </Select>
-      </FormControl>
+          <FormControl variant="outlined" className={classes.templateCategorySelect}>
+            <InputLabel id="category">Статус</InputLabel>
+            <Select labelId="category">
+              <MenuItem value={1}>По умолчанию</MenuItem>
+              <MenuItem value={0}>По выбору</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+      </Grid>
 
       <h2 className="subtitle mb-6">Привязка шаблона</h2>
 
@@ -79,37 +84,45 @@ const TemplateCharacteristicsForm: FC<TemplateCharacteristicsFormProps> = () => 
         <span className={classes.changeAttachmentBtn}>Изменить</span>
       </Grid>
 
-      <FormControl variant="outlined" className={classes.departmentSelect}>
-        <InputLabel id="category">Отделение</InputLabel>
-        <Select labelId="category">
-          <MenuItem value={1}>По умолчанию</MenuItem>
-          <MenuItem value={0}>По выбору</MenuItem>
-        </Select>
-      </FormControl>
+      <Grid container>
+        <Grid item xs={9}>
+          <FormControl variant="outlined" className={classes.departmentSelect}>
+            <InputLabel id="category">Отделение</InputLabel>
+            <Select labelId="category">
+              <MenuItem value={1}>По умолчанию</MenuItem>
+              <MenuItem value={0}>По выбору</MenuItem>
+            </Select>
+          </FormControl>
 
-      <Button disableElevation className={classes.button} startIcon={<CalendarTodayIcon style={{color: '#0070D7'}} />}>
-        добавить отделение
-      </Button>
+          <Button
+            disableElevation
+            className={classes.button}
+            startIcon={<CalendarTodayIcon style={{color: '#0070D7'}} />}
+          >
+            добавить отделение
+          </Button>
 
-      <div className="switch-label">Шаблон по умолчанию</div>
-      <FormControlLabel
-        value="Шаблон по умолчанию"
-        control={<Switch color="primary" />}
-        label="Да"
-        className="ma-0 mb-8"
-      />
+          <div className="switch-label">Шаблон по умолчанию</div>
+          <FormControlLabel
+            value="Шаблон по умолчанию"
+            control={<Switch color="primary" />}
+            label="Да"
+            className="ma-0 mb-6"
+          />
 
-      <h1 className="main-title">Характеристики параметров</h1>
+          <h1 className="main-title">Характеристики параметров</h1>
 
-      <CategoryForm tag="div" />
+          <CategoryForm tag="div" />
 
-      <Button
-        disableElevation
-        className={classes.button}
-        startIcon={<AddIcon style={{color: 'green', fontSize: 28}} />}
-      >
-        добавить категорию
-      </Button>
+          <Button
+            disableElevation
+            className={classes.button}
+            startIcon={<AddIcon style={{color: 'green', fontSize: 28}} />}
+          >
+            добавить категорию
+          </Button>
+        </Grid>
+      </Grid>
     </form>
   );
 };
