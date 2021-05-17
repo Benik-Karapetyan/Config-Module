@@ -28,7 +28,7 @@ const columns: Column[] = [
 interface FilterProps {
   branchId?: number;
   categoryId?: number;
-  isDefault?: string;
+  isDefault?: string | number;
   limit: number;
   offset?: number;
 }

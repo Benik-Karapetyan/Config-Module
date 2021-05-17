@@ -34,7 +34,7 @@ interface Category {
 }
 
 interface FiltersProps {
-  isDefault?: string;
+  isDefault?: string | number;
   onFilter: Function;
   onClick: Function;
 }

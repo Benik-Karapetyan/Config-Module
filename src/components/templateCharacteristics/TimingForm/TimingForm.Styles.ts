@@ -12,8 +12,8 @@ const useDepartmentFormStyles = makeStyles((theme) => ({
   },
   textArea: {
     width: '100%',
-    marginBottom: 35
-  }
+    marginBottom: 35,
+  },
 }));
 
 export default useDepartmentFormStyles;
