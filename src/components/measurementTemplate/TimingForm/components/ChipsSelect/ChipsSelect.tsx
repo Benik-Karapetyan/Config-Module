@@ -38,13 +38,13 @@ const ChipsSelect: FC<ChipsSelectProps> = ({
     <Grid className="mb-7">
       <label className={classes.label}>{label}</label>
 
-      {items.map((item, i) => (
+      {items.map((item) => (
         <Chip
           key={item[itemValue]}
           icon={calculatedValue() === item[itemValue] ? <DoneIcon /> : <div></div>}
           color={calculatedValue() === item[itemValue] ? 'primary' : undefined}
           label={item[itemText]}
-          className={i === 1 ? 'mx-3' : ''}
+          className="mr-3"
           style={{minWidth: itemWidth}}
           clickable
           onClick={() => handleSelect(item)}

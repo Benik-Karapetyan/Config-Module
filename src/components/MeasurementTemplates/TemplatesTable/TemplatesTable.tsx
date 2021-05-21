@@ -1,5 +1,5 @@
 import {FC, useState, useEffect, ChangeEvent} from 'react';
-import API from '../../../api';
+import API from '../../../app/api';
 import {IconButton, Grid, CircularProgress} from '@material-ui/core';
 import Filters from '../Filters';
 import DataTable from '../DataTable';
@@ -125,7 +125,7 @@ const TemplatesTable: FC<TemplatesTableProps> = () => {
         onClick={(e: any) => (page === 1 ? doFilter() : handlePageChange(e, 1))}
       />
       <DataTable loading={loading} columns={columns} sortColumn={sortColumn} items={templates} onSort={handleSort} />
-      {loading && (
+      {/* {loading && (
         <Grid
           container
           justify="center"
@@ -133,7 +133,7 @@ const TemplatesTable: FC<TemplatesTableProps> = () => {
         >
           <CircularProgress />
         </Grid>
-      )}
+      )} */}
       <Pagination
         page={page}
         onChange={handlePageChange}

@@ -5,7 +5,7 @@ import SideBar from '../components/SideBar';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 const navLinks = [
-  {text: 'Характеристики шаблона', to: '/create/template-characteristics'},
+  {text: 'Характеристики шаблона', to: '/create/measurement-template'},
   {text: 'Характеристики параметров', to: '/create/param-characteristics'},
 ];
 

@@ -2,11 +2,11 @@ import {FC} from 'react';
 import {Link} from 'react-router-dom';
 import {Grid, IconButton} from '@material-ui/core';
 import SideBar from '../components/SideBar';
-import TemplateCharacteristicsForm from '../components/templateCharacteristics/TemplateCharacteristicsForm';
+import TemplateCharacteristicsForm from '../components/measurementTemplate/MeasurementTemplateForm';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 const navLinks = [
-  {text: 'Характеристики шаблона', to: '/create/template-characteristics'},
+  {text: 'Характеристики шаблона', to: '/create/measurement-template'},
   {text: 'Характеристики параметров', to: '/create/param-characteristics'},
 ];
 

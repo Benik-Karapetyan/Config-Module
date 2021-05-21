@@ -1,6 +1,6 @@
 import {makeStyles} from '@material-ui/core';
 
-const useDepartmentFormStyles = makeStyles((theme) => ({
+const useTimingFormStyles = makeStyles(() => ({
   title: {
     margin: '0 0 25px',
   },
@@ -16,4 +16,4 @@ const useDepartmentFormStyles = makeStyles((theme) => ({
   },
 }));
 
-export default useDepartmentFormStyles;
+export default useTimingFormStyles;

@@ -4,7 +4,7 @@ import {Grid, Divider, Chip} from '@material-ui/core';
 import DoneIcon from '@material-ui/icons/Done';
 
 export interface ChipsSelectMultipleProps {
-  value: string[] | number[] | object[];
+  value: (string | number | object)[] | undefined;
   label: string;
   items: any[];
   itemText?: string;
@@ -15,7 +15,7 @@ export interface ChipsSelectMultipleProps {
 }
 
 const ChipsSelectMultiple: FC<ChipsSelectMultipleProps> = ({
-  value,
+  value = [],
   label,
   items,
   itemText = 'text',
@@ -50,7 +50,6 @@ const ChipsSelectMultiple: FC<ChipsSelectMultipleProps> = ({
         onChange([...value, item]);
       }
     } else {
-      // @ts-ignore
       let newValue = [...value];
       newValue = newValue.filter((val) => typeof val !== 'object');
 
@@ -73,13 +72,13 @@ const ChipsSelectMultiple: FC<ChipsSelectMultipleProps> = ({
       <Grid className="py-2">
         <label className={classes.label}>{label}</label>
 
-        {items.map((item, i) => (
+        {items.map((item) => (
           <Chip
             key={item[itemValue]}
             icon={calculateSelected(item) ? <DoneIcon /> : <div></div>}
             color={calculateSelected(item) ? 'primary' : undefined}
             label={item[itemText]}
-            className={i === 0 ? '' : 'mx-3'}
+            className="mr-3"
             style={{minWidth: itemWidth}}
             clickable
             onClick={() => handleSelect(item)}

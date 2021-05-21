@@ -34,19 +34,19 @@ const Body: FC<BodyProps> = ({loading, items, columns}) => {
 
   return (
     <>
-      {!loading && (
-        <TableBody>
-          {items.map((item: any) => (
-            <TableRow key={item.id}>
-              {columns.map((column, i) => (
-                <TableCell align={i === 4 ? 'right' : 'left'} key={createKey(item, column)}>
-                  {renderCell(item, column)}
-                </TableCell>
-              ))}
-            </TableRow>
-          ))}
-        </TableBody>
-      )}
+      {/* {!loading && ( */}
+      <TableBody>
+        {items.map((item: any) => (
+          <TableRow key={item.id}>
+            {columns.map((column, i) => (
+              <TableCell align={i === 4 ? 'right' : 'left'} key={createKey(item, column)}>
+                {renderCell(item, column)}
+              </TableCell>
+            ))}
+          </TableRow>
+        ))}
+      </TableBody>
+      {/* )} */}
     </>
   );
 };

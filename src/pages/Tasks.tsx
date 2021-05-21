@@ -6,7 +6,7 @@ import {DeleteOutlined, EditOutlined} from '@ant-design/icons';
 import {Form, Checkbox, Input, List, FormInstance} from 'antd';
 import {ValidateErrorEntity} from 'rc-field-form/lib/interface';
 import {Card, Col, PageHeader, Row, Typography, Tooltip, Button} from 'antd';
-import {RootState, Task} from '../types';
+import {RootState, Task} from '../app/types';
 import {CheckboxChangeEvent} from 'antd/lib/checkbox';
 import {
   createTaskActionCreator,

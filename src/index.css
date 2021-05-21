@@ -26,8 +26,21 @@ body {
   margin: 0 !important;
 }
 
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 .mx-3 {
   margin-left: 12px !important;
+  margin-right: 12px !important;
+}
+
+.mt-3 {
+  margin-top: 12px !important;
+}
+
+.mr-3 {
   margin-right: 12px !important;
 }
 
