@@ -1,7 +1,7 @@
 import {FC} from 'react';
 import {Grid} from '@material-ui/core';
 import SideBar from '../components/SideBar';
-import TemplatesTable from '../components/MeasurementTemplates/TemplatesTable';
+import TemplatesTable from '../components/measurementTemplates/TemplatesTable';
 
 const navLinks = [
   {text: 'Шаблоны журнала измерений', to: '/templates'},

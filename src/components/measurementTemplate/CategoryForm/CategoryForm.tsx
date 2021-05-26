@@ -56,8 +56,6 @@ const CategoryForm: FC<CategoryFormProps> = ({
   };
 
   const handleParamSelect = (items: TemplateTiming[]) => {
-    console.log(items);
-    // items = items.map((item) => ({...item, templateId: item.id}));
     onParamChange(items);
   };
 
